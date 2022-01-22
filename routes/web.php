@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\NasabahController;
+use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('nasabah');
+});
+
+Route::get('nasabah', function () {
+    return view('nasabah.index');
+});
+Route::get('transaksi', function () {
+    return view('transaksi.index');
+});
+Route::get('poin', function () {
+    return view('poin.index');
+});
+Route::get('laporan', function () {
+    return view('laporan.index');
 });
