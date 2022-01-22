@@ -19,6 +19,12 @@ class NasabahCreate extends Component
 
     public function store()
     {
+        $this->validate([
+            'name' => 'required'
+        ], [
+            'name.required' => 'Nama belum diisi'
+        ]);
+
         $nasabah = new Nasabah;
         $nasabah->name = $this->name;
         $nasabah->save();

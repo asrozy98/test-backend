@@ -24,6 +24,19 @@ class TransaksiCreate extends Component
 
     public function store()
     {
+        $this->validate([
+            'account_id' => 'required',
+            'description' => 'required',
+            'type' => 'required',
+            'amount' => 'required',
+        ], [
+            'account_id.required' => 'Nasabah belum dipilih',
+            'description.required' => 'Deskripsi belum diisi',
+            'type.required' => 'Type transaksi belum dipilih',
+            'amount.required' => 'Nominal Transaksi belum diisi',
+            'amount.integer' => 'Nominal harus angka',
+        ]);
+
         $transaksi = new Transaksi;
         $transaksi->account_id = $this->account_id;
         $transaksi->description = $this->description;
